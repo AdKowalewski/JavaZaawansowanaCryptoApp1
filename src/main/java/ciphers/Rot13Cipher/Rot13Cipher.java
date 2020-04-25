@@ -1,6 +1,6 @@
-package Rot13Cipher;
+package ciphers.Rot13Cipher;
 
-import sda.CesarSipher.CesarCipher;
+import ciphers.CesarSipher.CesarCipher;
 
 public class Rot13Cipher extends CesarCipher {
 

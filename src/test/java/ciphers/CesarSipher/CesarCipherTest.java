@@ -1,4 +1,4 @@
-package sda.CesarSipher;
+package ciphers.CesarSipher;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
