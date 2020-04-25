@@ -1,6 +1,5 @@
-package ciphers;
+package sda.ciphers.Rot13CipherTest;
 
-import ciphers.Rot13Cipher.Rot13Cipher;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

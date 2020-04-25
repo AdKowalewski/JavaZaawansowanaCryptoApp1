@@ -1,4 +1,4 @@
-package ciphers.CesarSipher;
+package sda.ciphers.CesarSipher;
 
 public class CesarCipher {
 

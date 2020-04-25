@@ -1,4 +1,6 @@
-import gui.MainFrame;
+package sda;
+
+import sda.gui.MainFrame;
 
 public class RunnerApp {
 
