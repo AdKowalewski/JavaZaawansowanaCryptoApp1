@@ -2,17 +2,36 @@ package sda.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements ActionListener {
 
     public void startGui() {
         JFrame mainFrame = new JFrame("Crypto app");
         mainFrame.setMinimumSize(new Dimension(400, 200));
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        mainFrame.setJMenuBar(addMenuBar());
         mainFrame.add(addMainPanel());
         mainFrame.setVisible(true);
         mainFrame.pack();
+    }
+
+    private JMenuBar addMenuBar() {
+        JMenu fileMenu = new JMenu("File");
+        JMenu optMenu = new JMenu("Options");
+
+        JMenuItem exit = new JMenu("Exit");
+        exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.ALT_MASK));
+        exit.addActionListener(this);
+        fileMenu.add(exit);
+
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.add(fileMenu);
+        menuBar.add(optMenu);
+        return menuBar;
     }
 
     private Component addMainPanel() {
@@ -37,11 +56,11 @@ public class MainFrame extends JFrame {
 
         JButton runAlgorithmBtn = new JButton("Run algorithm");
         constr.gridy = 2;
-        constr.ipadx = 2;
-        constr.ipady = 2;
+        constr.insets = new Insets(5, 3, 1, 3);
         panel.add(runAlgorithmBtn, constr);
 
         JTextArea logArea = new JTextArea(8, 10);
+        logArea.setLineWrap(true);
         constr.gridy = 3;
         panel.add(logArea, constr);
 
@@ -107,5 +126,12 @@ public class MainFrame extends JFrame {
         subPanel.add(decodeRadioBtn, constraints);
 
         return subPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if("exit".equalsIgnoreCase(e.getActionCommand())) {
+            System.exit(0);
+        }
     }
 }
